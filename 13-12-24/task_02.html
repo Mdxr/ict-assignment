@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+        }
+        #calculator{
+            background-color: #efefef;
+            border: 1px solid #d9d9d9;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #calculator input{
+            padding: 5px 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+        }
+        #calculator button{
+            background-color: #5400ff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #calculator button:hover{
+            background-color: #4500ce;
+        }
+        #result{
+            background-color: white;
+            width: 50%;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calculator">
+        <h3 style="margin: 0;">Calculator</h3>
+        <input type="number" id="num1" value="0" placeholder="number 1">
+        <br>
+        <input type="number" id="num2" value="0" placeholder="number 2">
+        <br><br>
+        <button onclick="displaySum()">Calculate Sum</button>
+        <p id="result">Sum: 0</p>
+    </div>
+    <script>
+        function calculateSum(a, b) {
+            return a + b;
+        }
+
+        function displaySum() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const sum = calculateSum(num1, num2);
+            document.getElementById("result").innerText = `Sum: ${sum}`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Validation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        form {
+            background-color: #efefef;
+            border: 1px solid #d9d9d9;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            border-radius: 10px;
+        }
+
+        form input {
+            padding: 5px 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #5400ff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #4500ce;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h4>Registration Form</h4>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="validateForm()">Submit</button>
+    </form>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+        function validateForm() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (!email.includes("@") || !email.includes(".")) {
+                console.log("Invalid email");
+            } else if (password.length < 8 || !/\d/.test(password)) {
+                console.log("Invalid password");
+            } else {
+                console.log("Registration successful");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter and Sort Array</title>
+    <style>
+        body{
+            .container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 15px;
+                border: 1px solid #d9d9d9;
+                width: 40%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Filter and Sort Array</h1>
+        <p>before sorting and filtering</p>
+        <ul id="product-list-before"></ul>
+        <p>after sorting and filtering</p>
+        <ul id="product-list-after"></ul>
+    </div>
+    <script>
+        const productListBefore = document.getElementById("product-list-before");
+        const productListAfter = document.getElementById("product-list-after");
+        
+        const products = [
+            { name: "Laptop", price: 1000 },
+            { name: "Phone", price: 500 },
+            { name: "Tablet", price: 700 }
+        ];
+
+        products.forEach(product => {
+                const listItem = document.createElement("li");
+                listItem.innerText = `${product.name} - $${product.price}`;
+                productListBefore.appendChild(listItem);
+        });
+
+        function filterAndSortProducts() {
+            const filtered = products.filter(product => product.price < 800);
+            const sorted = filtered.sort((a, b) => a.price - b.price);
+
+            sorted.forEach(product => {
+                const listItem = document.createElement("li");
+                listItem.innerText = `${product.name} - $${product.price}`;
+                productListAfter.appendChild(listItem);
+            });
+        }
+
+        // Call the function
+        filterAndSortProducts();
+    </script>
+</body>
+</html>

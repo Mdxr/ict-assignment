@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Validate Age Input</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+        }
+
+        #age-validator {
+            background-color: #efefef;
+            border: 1px solid #d9d9d9;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #age-validator input {
+            padding: 5px 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+        }
+
+        #age-validator button {
+            background-color: #5400ff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #age-validator button:hover {
+            background-color: #4500ce;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="age-validator">
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age">
+        <button onclick="validateAge()">Validate</button>
+        <p>Check console for results</p>
+    </div>
+    <script>
+        function validateAge() {
+            const age = parseInt(document.getElementById("age").value);
+            if (age >= 18) {
+                console.log("Valid age");
+            } else {
+                console.log("Invalid age");
+            }
+        }
+    </script>
+</body>
+
+</html>

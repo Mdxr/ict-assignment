@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Manipulation</title>
+</head>
+<body>
+    <h1>Object Manipulation</h1>
+    <p>checkout console for results</p>
+    <div id="output"></div>
+    <script>
+        let user = { name: "Mudasser Khan", age: 69, city: "Islamobod" };
+        console.log("before manipulation : ", user);
+
+        function manipulateObject(newAge) {
+            user.isAdmin = false;
+            user.age = newAge;
+            delete user.city; 
+
+            const outputDiv = document.getElementById("output");
+            console.log("after manipulation : ", user);
+        }
+        manipulateObject(19);
+    </script>
+</body>
+</html>

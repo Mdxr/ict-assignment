@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To-Do List Manager</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+        }
+
+        #todo-list {
+            background-color: #efefef;
+            border: 1px solid #d9d9d9;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #todo-list input {
+            padding: 5px 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #todo-list button {
+            background-color: #5400ff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #todo-list button:hover {
+            background-color: #4500ce;
+        }
+
+        #taskList li {
+            background-color: white;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="todo-list">
+        <h1>To-Do List</h1>
+        <input type="text" id="taskInput" placeholder="New task">
+        <div>
+            <button onclick="addTask()">Add Task</button>
+            <button onclick="removeTask()">Remove Task</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            const task = document.getElementById("taskInput").value;
+            if (task) {
+                tasks.push(task);
+                updateTaskList();
+            }
+        }
+
+        function removeTask() {
+            const task = document.getElementById("taskInput").value;
+            tasks = tasks.filter(t => t !== task);
+            updateTaskList();
+        }
+
+        function updateTaskList() {
+            const taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            tasks.forEach(task => {
+                const li = document.createElement("li");
+                li.textContent = task;
+                taskList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>

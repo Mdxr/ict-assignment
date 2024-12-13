@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+        }
+
+        #converter {
+            background-color: #efefef;
+            border: 1px solid #d9d9d9;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #converter input {
+            padding: 5px 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #converter button {
+            background-color: #5400ff;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #converter button:hover {
+            background-color: #4500ce;
+        }
+
+        #result{
+            background-color: white;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="converter">
+
+        <h1>Temperature Converter</h1>
+        <input type="number" id="temperature" placeholder="Enter temperature" value="0">
+        <select id="conversionType">
+            <option value="CtoF">Celsius to Fahrenheit</option>
+            <option value="FtoC">Fahrenheit to Celsius</option>
+        </select>
+        <button onclick="convertTemperature()">Convert</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function convertTemperature() {
+            const temp = parseFloat(document.getElementById("temperature").value);
+            const type = document.getElementById("conversionType").value;
+            let converted;
+
+            if (type === "CtoF") {
+                converted = (temp * 9/5) + 32;
+            } else {
+                converted = (temp - 32) * 5/9;
+            }
+
+            document.getElementById("result").innerText = `Converted: ${converted}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Items in a List</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            list-style: square;
+            border: 1px solid black;
+            padding: 3rem 5rem;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>Fruits List</p>
+    <ul id="fruitList">
+    </ul>
+    <script>
+        function displayFruits() {
+            const fruits = ['Apple', 'Banana', 'Cherry'];
+            const fruitList = document.getElementById("fruitList");
+            fruits.forEach(fruit => {
+                const li = document.createElement("li");
+                li.textContent = fruit;
+                fruitList.appendChild(li);
+            });
+        }
+        displayFruits();
+    </script>
+</body>
+</html>
